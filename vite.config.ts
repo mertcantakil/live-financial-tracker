@@ -5,7 +5,7 @@ import { defineConfig, type ProxyOptions } from 'vite'
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36'
 
-// Dev mirror of functions/index.js. Yahoo and Google News send no CORS headers
+// Dev mirror of api/proxy.ts. Yahoo and Google News send no CORS headers
 // and reject requests carrying a foreign Origin.
 const upstreamProxy = (target: string, prefix: string): ProxyOptions => ({
   target,

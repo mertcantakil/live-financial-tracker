@@ -15,11 +15,8 @@ dist-ssr
 .env.*
 !.env.example
 
-# Firebase
-.firebase/
-firebase-debug*.log
-firestore-debug.log
-ui-debug.log
+# Vercel
+.vercel
 
 # Editor directories and files
 .vscode/*
