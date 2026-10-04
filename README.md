@@ -2,7 +2,7 @@
 
 Kripto, altın ve S&P 500 hisselerini canlı izleyen, Bloomberg/TradingView tarzı koyu temalı bir finans terminali.
 
-**Canlı demo:** _deploy sonrası eklenecek_
+**Canlı demo:** [live-market-terminal.web.app](https://live-market-terminal.web.app)
 
 ## Özellikler
 
