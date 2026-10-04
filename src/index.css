@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-bg: #0b0e14;
+  --color-panel: #10141b;
+  --color-panel-2: #161b24;
+  --color-line: #1e2530;
+  --color-fg: #d1d4dc;
+  --color-muted: #6b7489;
+  --color-accent: #2962ff;
+  --color-up: #26a69a;
+  --color-down: #ef5350;
+  --color-warn: #f0b90b;
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    @apply bg-bg font-sans text-fg antialiased;
+    color-scheme: dark;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line) transparent;
+}
+
+@utility skeleton {
+  @apply rounded bg-panel-2;
+  background-image: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.04), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes flash-up {
+  from {
+    background-color: rgb(38 166 154 / 0.35);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+
+@keyframes flash-down {
+  from {
+    background-color: rgb(239 83 80 / 0.35);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+
+.flash-up {
+  animation: flash-up 0.7s ease-out;
+}
+
+.flash-down {
+  animation: flash-down 0.7s ease-out;
+}
+
+.chart-legend b {
+  font-weight: 500;
+  color: var(--color-fg);
+}
+.chart-legend[data-direction='up'] b {
+  color: var(--color-up);
+}
+.chart-legend[data-direction='down'] b {
+  color: var(--color-down);
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.toast-in {
+  animation: toast-in 0.25s ease-out;
+}
+
+@keyframes loading-bar {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.loading-bar {
+  overflow: hidden;
+}
+.loading-bar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  animation: loading-bar 1.1s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flash-up,
+  .flash-down,
+  .toast-in,
+  .loading-bar::after,
+  .skeleton {
+    animation: none;
+  }
+}
