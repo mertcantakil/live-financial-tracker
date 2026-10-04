@@ -2,7 +2,7 @@
 
 Kripto, altın ve S&P 500 hisselerini canlı izleyen, Bloomberg/TradingView tarzı koyu temalı bir finans terminali.
 
-**Canlı demo:** _Vercel deploy sonrası eklenecek_
+**Canlı demo:** [live-financial-tracker.vercel.app](https://live-financial-tracker.vercel.app)
 
 ## Özellikler
 
